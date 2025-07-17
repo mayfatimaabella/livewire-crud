@@ -55,6 +55,6 @@ class ProductCreate extends Component
     
     public function render()
     {
-        return view('livewire.product-create')->layout('layouts.app');
+        return view('livewire.product-create');
     }
 }

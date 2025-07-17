@@ -2,13 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Livewire\ProductIndex;
-use App\Livewire\ProductCreate;
-use App\Livewire\ProductEdit;
-use App\Livewire\ProductShow;
-use App\Livewire\Auth\Login;
-use App\Livewire\Auth\Register;
-use App\Livewire\Auth\Logout;
+use App\Models\Product;
 
 // Authentication Routes (for guests only)
 Route::middleware(['guest'])->group(function () {
@@ -30,10 +24,21 @@ Route::post('/logout', function () {
 
 // Protected Livewire Routes (require authentication)
 Route::middleware(['auth'])->group(function () {
-    Route::get('/products', ProductIndex::class)->name('products.index');
-    Route::get('/products/create', ProductCreate::class)->name('products.create');
-    Route::get('/products/{product}/edit', ProductEdit::class)->name('products.edit');
-    Route::get('/products/{product}', ProductShow::class)->name('products.show');
+    Route::get('/products', function () {
+        return view('products.index');
+    })->name('products.index');
+    
+    Route::get('/products/create', function () {
+        return view('products.create');
+    })->name('products.create');
+    
+    Route::get('/products/{product}/edit', function (Product $product) {
+        return view('products.edit', compact('product'));
+    })->name('products.edit');
+    
+    Route::get('/products/{product}', function (Product $product) {
+        return view('products.show', compact('product'));
+    })->name('products.show');
 });
 
 // Redirect root to products (or login if not authenticated)

@@ -85,6 +85,6 @@ class ProductEdit extends Component
     
     public function render()
     {
-        return view('livewire.product-edit')->layout('layouts.app');
+        return view('livewire.product-edit');
     }
 }

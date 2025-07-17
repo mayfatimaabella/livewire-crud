@@ -84,10 +84,10 @@
                         <div class="mb-3 row">
                             <label for="image" class="col-md-4 col-form-label text-md-end text-start">Product Image</label>
                             <div class="col-md-6">
-                                @if($product->image_path)
+                                @if($product->hasImage())
                                     <div class="mb-2">
                                         <strong>Current Image:</strong><br>
-                                        <img src="{{ asset('storage/' . $product->image_path) }}" 
+                                        <img src="{{ $product->image_url }}" 
                                              alt="{{ $product->name }}" 
                                              class="img-thumbnail mt-2" 
                                              style="max-height: 150px;">

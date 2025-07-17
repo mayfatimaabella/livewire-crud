@@ -47,8 +47,8 @@
                     <div class="row">
                         <label class="col-md-4 col-form-label text-md-end"><strong>Image:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            @if($product->image_path)
-                                <img src="{{ asset('storage/' . $product->image_path) }}" 
+                            @if($product->hasImage())
+                                <img src="{{ $product->image_url }}" 
                                      alt="{{ $product->name }}" 
                                      style="max-width:200px; height:auto;" 
                                      class="img-thumbnail">

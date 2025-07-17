@@ -31,6 +31,6 @@ class ProductIndex extends Component
     {
         return view('livewire.product-index', [
             'products' => Product::latest()->paginate(4)
-        ])->layout('layouts.app');
+        ]);
     }
 }

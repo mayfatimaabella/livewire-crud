@@ -25,6 +25,7 @@
                                 <th scope="col">S#</th>
                                 <th scope="col">Code</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Action</th>
@@ -36,6 +37,16 @@
                                     <th scope="row">{{ $loop->iteration }}</th>
                                     <td>{{ $product->code }}</td>
                                     <td>{{ $product->name }}</td>
+                                    <td>
+                                        @if($product->hasImage())
+                                            <img src="{{ $product->image_url }}" 
+                                                 alt="{{ $product->name }}" 
+                                                 style="width: 50px; height: 50px; object-fit: cover;" 
+                                                 class="img-thumbnail">
+                                        @else
+                                            <span class="text-muted">No Image</span>
+                                        @endif
+                                    </td>
                                     <td>{{ $product->quantity }}</td>
                                     <td>${{ number_format($product->price, 2) }}</td>
                                     <td>
