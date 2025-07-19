@@ -17,7 +17,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}" wire:navigate>
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 
@@ -36,8 +36,8 @@
                             </div>
                         </div>
                     @else
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link" href="{{ route('login') }}" wire:navigate>Login</a>
+                        <a class="nav-link" href="{{ route('register') }}" wire:navigate>Register</a>
                     @endauth
                 </div>
             </div>

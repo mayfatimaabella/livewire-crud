@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <a href="{{ route('products.create') }}" class="btn btn-success btn-sm my-2">
+                    <a href="{{ route('products.create') }}" class="btn btn-success btn-sm my-2" wire:navigate>
                         <i class="bi bi-plus-circle"></i> Add New Product
                     </a>
                     
@@ -50,10 +50,10 @@
                                     <td>{{ $product->quantity }}</td>
                                     <td>${{ number_format($product->price, 2) }}</td>
                                     <td>
-                                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm" wire:navigate>
                                             <i class="bi bi-eye"></i> Show
                                         </a>
-                                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm" wire:navigate>
                                             <i class="bi bi-pencil-square"></i> Edit
                                         </a>
                                         <button type="button" 

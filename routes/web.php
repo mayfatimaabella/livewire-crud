@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 
-// Authentication Routes (for guests only)
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', function () {
         return view('auth.login');
@@ -14,7 +13,6 @@ Route::middleware(['guest'])->group(function () {
     })->name('register');
 });
 
-// Logout route (for authenticated users only)
 Route::post('/logout', function () {
     Auth::logout();
     request()->session()->invalidate();
@@ -22,7 +20,6 @@ Route::post('/logout', function () {
     return redirect()->route('login');
 })->name('logout')->middleware('auth');
 
-// Protected Livewire Routes (require authentication)
 Route::middleware(['auth'])->group(function () {
     Route::get('/products', function () {
         return view('products.index');

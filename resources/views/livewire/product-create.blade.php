@@ -5,7 +5,7 @@
                 <div class="card-header">
                     <div class="float-start">Add New Product</div>
                     <div class="float-end">
-                        <a href="{{ route('products.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+                        <a href="{{ route('products.index') }}" class="btn btn-primary btn-sm" wire:navigate>&larr; Back</a>
                     </div>
                 </div>
                 <div class="card-body">

@@ -80,7 +80,7 @@ class ProductEdit extends Component
         
         session()->flash('success', 'Product updated successfully.');
         
-        return redirect()->route('products.index');
+        return $this->redirect(route('products.index'), navigate: true);
     }
     
     public function render()
